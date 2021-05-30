@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export APPDIR=/opt/unity/UnityHub
+
+rm -rf /tmp/.X*-lock
+xvfb-run -ae /dev/stdout ${APPDIR}/AppRun --no-sandbox "$@"
