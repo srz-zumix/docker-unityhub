@@ -3,10 +3,9 @@ FROM ubuntu:latest
 LABEL maintainer "srz_zumix <https://github.com/srz-zumix>"
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN env \
-  && apt-get update \
-  && apt-get install -q -y git cmake make g++ lcov \
+RUN  apt-get update \
   && apt-get install -q -y --no-install-recommends \
+    ca-certificates \
     libasound2 \
     libc6-dev \
     libcap2 \
