@@ -14,4 +14,6 @@ hub: ## run unityhub (e.g. make hub OPT=help)
 
 version: ## show hub version
 	docker run --rm --entrypoint cat ${IMAGE_NAME} /opt/unity/UnityHub/unityhub.desktop | grep Version | sed s/.*=//
-	
+
+rmi:
+	docker image rm ${IMAGE_NAME}
