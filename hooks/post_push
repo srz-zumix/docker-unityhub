@@ -1,0 +1,13 @@
+#!/bin/bash
+set -eu
+
+if [ "${DOCKER_TAG}" = "latest" ]; then
+  HUB_VERSION=$(docker run --rm --entrypoint cat ${IMAGE_NAME} /opt/unity/UnityHub/unityhub.desktop | grep Version | sed s/.*=//)
+  echo ${HUB_VERSION}
+  if [ "${HUB_VERSION}" = "" ]; then
+    exit 1
+  else
+    docker tag ${IMAGE_NAME} ${DOCKER_REPO}:${HUB_VERSION}
+    docker push ${DOCKER_REPO}:${HUB_VERSION}
+  fi
+fi
