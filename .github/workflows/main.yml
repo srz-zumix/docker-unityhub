@@ -1,0 +1,14 @@
+name: DockerHub build trigger
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  dockerhub:
+    runs-on: ubuntu-latest
+    env:
+      URL: ${{ secrets.DOCKERHUB_BUILD_URL }}
+    steps:
+      - name: trigger
+        run: |
+          curl -X POST ${URL}
