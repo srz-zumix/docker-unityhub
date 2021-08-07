@@ -19,8 +19,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags:
-            - srzzumix/unityhub:latest
+          tags: srzzumix/unityhub:latest
       - name: Push to version tag
         env:
           DOCKER_TAG: latest
