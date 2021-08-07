@@ -22,7 +22,7 @@ jobs:
       - name: Push to version tag
         env:
           DOCKER_TAG: latest
-          IMAGE_NAME: srzzumix/unityhub
+          IMAGE_NAME: srzzumix/unityhub:latest
           DOCKER_REPO: srzzumix/unityhub
         run: |
           ./hooks/post_push
